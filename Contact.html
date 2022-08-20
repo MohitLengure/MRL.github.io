@@ -63,44 +63,53 @@
 					<h2>
 						Want To Get In Touch
 					</h2>
-				   <form id="register" method="post" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdvZQsyop4US6Am0eDsvkqeOe9hPCAfqZ0X7isTrC2v517t8w/formResponse">
+	
+	
+	<form name="submit-to-google-sheet" id="register">
 						<label>First Name :</label>
 						<br>
-						<input type="text" name="entry.761911299_sentinel" id="name" placeholder="Enter your First Name">
+						<input type="text" name="First_Name" id="name" placeholder="Enter your First Name">
 						<br><br>
 						<label>Last Name:</label>
 						<br>
-						<input type="text" name="lname" id="name" placeholder="Enter your Last Name">
+						<input type="text" name="Last_Name" id="name" placeholder="Enter your Last Name">
 						<br><br>
 						<label>Mobile No :</label>
 						<br>
-						<input type="Number" name="Mobile" id="name" placeholder="Your Mobile Number">
+						<input type="Number" name="Mobile_No" id="name" placeholder="Your Mobile Number">
 						<br><br>
 						<label>Email :</label>
 						<br>
-						<input type="email" name="email" id="name" placeholder="Enter Your Mail">
+						<input type="email" name="Email" id="name" placeholder="Enter Your Mail">
 					<br><br>
 					<label>Message :</label>
 						<br>
-						<input type="text" name="Meassage" id="name" placeholder="Enter Your Suggestion">
-					<label>Gender : </label>
-					<br>
-					&nbsp;&nbsp;&nbsp;
-					<input type="radio" name="Gender" id="male">
-					&nbsp;
-					<span id="male">Male</span>
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="radio" name="Gender" id="Female">
-					<span id="Female">Female</span>
+						<input type="Message" name="Message" id="name" placeholder="Enter Your Message">
 					<br><br>
-					<a href="">
 					<input type="Submit" value="Submit" name="Submit" id="Submit"></a>
 					</form>
+					<span id="msg"></span>
 				</div>
 				</div> 
 				</div>
 			</div>
 		</div>
+		
+<script>
+	const scriptURL = 'https://script.google.com/macros/s/AKfycbygfaPIU8_CCIMl-JYTJgwaeyR1dmYgqEyEHCWtXPD2qww6bbaFYCv30lrNEvY0Euxt/exec'
+	const form = document.forms['submit-to-google-sheet']
+	const msg=document.getElementById("msg")
+  
+	form.addEventListener('submit', e => {
+	  e.preventDefault()
+	  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+		.then(response => {
+			msg.innerHTML="Thanks For Your Support"
+			 setTimeout(function(){msg.innerHTML=""},5000)
+		})
+		.catch(error => console.error('Error!', error.message))
+	})
+  </script>
 </header>
 </body>
 </html>

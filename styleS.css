@@ -266,3 +266,12 @@ input#Submit{
 label,span,h2{
 	text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 }
+span{
+    color: #61b752;
+    margin-top: -12%;
+    display: block;
+    font-family: sans-serif;
+	font-weight: 600;
+    position: absolute;
+    margin-left: 10%;
+}
